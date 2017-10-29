@@ -1,5 +1,5 @@
 import React from 'react';
-import {register} from '../helpers';
+import {register} from '../api';
 import {Link} from 'react-router-dom';
 
 const Register = () => {

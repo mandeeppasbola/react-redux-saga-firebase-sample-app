@@ -1,5 +1,5 @@
 import React from 'react';
-import {login, resetPassword} from '../helpers';
+import {login, resetPassword} from '../api';
 import {Link} from 'react-router-dom';
 
 const Login = () => {

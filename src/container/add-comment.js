@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import AddComment from '../components/add-comment';
-import {addComment} from '../actions/commentActions';
+import {addComment} from '../actions';
 
 const AddCommentContainer = ({actions}) => (
     <AddComment addCommentAction={actions.addComment}/>

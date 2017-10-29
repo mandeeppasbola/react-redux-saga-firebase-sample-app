@@ -1,22 +1,23 @@
 # React Redux Saga Firebase Sample App
 Sample React Redux app using Redux-Saga for async & Firebase for database & authentication
+
 ### Install Dependencies
 ```sh
 npm install
 ```
-### Run development
+### Development
 ```sh
+Build : 
+npm run build:dev
+Start : 
 npm run start:dev
 ```
-### Run production
+### Production
 ```sh
+Build : 
+npm run build:prod
+Start : 
 npm run start:prod
 ```
-### Build development
-```sh
-npm run build:dev
-```
-### Build production
-```sh
-npm run build:prod
-```
+
+Note : Replace your Firebase configurations in firebase.js

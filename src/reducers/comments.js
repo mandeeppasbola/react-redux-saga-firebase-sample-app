@@ -1,7 +1,7 @@
-import * as actionTypes from '../actions/actionTypes'
+import * as actionTypes from '../actions/types'
 import initialState from './initialState'
 
-const comments = (state = initialState.comments, action) => {
+export const comments = (state = initialState.comments, action) => {
     switch(action.type){
         case actionTypes.LOAD_COMMENTS_SUCCESS:
             return [...action.comments]
@@ -23,5 +23,3 @@ const comments = (state = initialState.comments, action) => {
             return state
     }
 }
-
-export default comments;

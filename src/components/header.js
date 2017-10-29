@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {logout} from '../helpers'
+import {logout} from '../api'
 
 const Header = ({authed}) => (
     <div className="header">

@@ -5,17 +5,15 @@ import {render} from 'react-dom';
 
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
 
 import createSagaMiddleware from 'redux-saga';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 
-import comments from './reducers/comments';
+import {comments} from './reducers';
 import rootSaga from './sagas';
+import {loadComments} from './actions';
 
 import App from './components/app';
-
-import {loadComments} from './actions/commentActions';
 import './styles/app.scss';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -30,13 +28,9 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
-store.dispatch(loadComments());
-
 render (
 	<Provider store={store}>
-		<BrowserRouter>
-				<Route path="/" component={App}/>
-    	</BrowserRouter>
+		<App/>
 	</Provider>, 
 	document.getElementById('app')
-	);
+);

@@ -6,17 +6,28 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import Comment from '../components/comment';
-import {saveComment, deleteComment} from '../actions/commentActions';
+import {loadComments, saveComment, deleteComment} from '../actions';
 
-const CommentListContainer = ({comments, actions}) => (
-    <div className="comments">
-    {
-        comments.map((comment, i) => (
-            <Comment comment={comment} actions={actions} key={comment.id}/>
-        ))
-    }			
-    </div>
-)
+class CommentListContainer extends React.Component{
+    constructor(props, context){
+		super(props, context);
+    }
+    
+    componentDidMount(){
+        this.props.actions.loadComments()
+    }
+
+    render(){
+        const {comments, actions} = this.props;
+        return <div className="comments">
+        {
+            comments.map((comment, i) => (
+                <Comment comment={comment} actions={actions} key={comment.id}/>
+            ))
+        }			
+        </div>
+    }
+}
 
 const mapStateToProps = (state) => (
     {
@@ -26,7 +37,7 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => (
     {
-        actions: bindActionCreators({saveComment, deleteComment}, dispatch)
+        actions: bindActionCreators({ loadComments, saveComment, deleteComment}, dispatch)
     }
 )
 
