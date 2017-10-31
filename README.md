@@ -19,5 +19,9 @@ npm run build:prod
 Start : 
 npm run start:prod
 ```
+### Bundle Size
+```sh
+npm run build:size
+```
 
 Note : Replace your Firebase configurations in firebase.js
