@@ -1,17 +1,22 @@
+require("babel-register");
+
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 
 module.exports = {	
 	entry : ["babel-polyfill","./src/index.js"],
 	output : {
 		filename: 'bundle.js',
+		chunkFilename: '[name].bundle.js',
 		path: __dirname + "/dist"
 	},
 	resolve : {
 		alias: {
 			'react': 'preact-compat',
-			'react-dom': 'preact-compat'
+			'react-dom': 'preact-compat',
+			'firebaseImport$': path.join('path', 'to', 'your', 'firebaseImport.js')
 		}
 	},
 	plugins: [

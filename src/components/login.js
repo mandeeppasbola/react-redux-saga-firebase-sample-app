@@ -1,5 +1,5 @@
 import React from 'react';
-import {login, resetPassword} from '../api';
+import {login} from '../api';
 import {Link} from 'react-router-dom';
 
 const Login = () => {
@@ -10,22 +10,16 @@ const Login = () => {
 
     const handleLoginClick = () => {
         if(loginForm.checkValidity()){
-            login(emailInput.value, passwordInput.value).catch((error) => {
+            errorLabel.innerHTML = "";
+            login(emailInput.value, passwordInput.value)
+            .catch((error) => {
                 errorLabel.innerHTML = error.message;
             })
+            loginForm.reset();
         } else {
             errorLabel.innerHTML = "Email and Password are required";
         }
     } 
-    
-    const handleResetClick = (e) => {
-        e.preventDefault();
-        if(emailInput.value) {
-            resetPassword(emailInput.value);
-        } else{
-            errorLabel.innerHTML = "Email is required";
-        }        
-    }
 
     return (
         <div className="auth-container">
@@ -37,7 +31,7 @@ const Login = () => {
                 <button type="button" onClick={() => {handleLoginClick()}}>Log In</button>
             </form>
             <div className="links">
-                <a href="#" onClick={(e) => handleResetClick(e)}>Reset Password</a>
+                <Link to="/reset">Reset Password</Link>
                 <Link to="/register">Register</Link>
             </div>
         </div>

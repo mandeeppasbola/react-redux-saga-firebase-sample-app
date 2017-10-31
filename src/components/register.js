@@ -2,7 +2,7 @@ import React from 'react';
 import {register} from '../api';
 import {Link} from 'react-router-dom';
 
-const Register = () => {
+const Register = ({history}) => {
     let regForm = null,
     nameInput = null,
     emailInput = null,
@@ -12,10 +12,14 @@ const Register = () => {
 
     const handleRegClick = () => {
         if(regForm.checkValidity()){
-            register(nameInput.value, emailInput.value, passwordInput.value)
+            errorLabel.innerHTML = "";
+            register(nameInput.value, emailInput.value, passwordInput.value).then(()=>{
+                history.push('/login');
+            })
             .catch((error) => {
                 errorLabel.innerHTML = error.message;
             })
+            regForm.reset();
         } else {
             errorLabel.innerHTML = "Name, Email, Password are required";
         }
