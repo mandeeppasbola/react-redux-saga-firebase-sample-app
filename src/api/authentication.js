@@ -1,13 +1,13 @@
-import {database, auth} from '../firebase';
+import {firebaseAuth, firebaseDb} from '../firebase';
 
 export const login = (email, password) => (
-    auth.signInWithEmailAndPassword(email, password)
+    firebaseAuth.signInWithEmailAndPassword(email, password)
 )
 
 export const register = (name, email, password) => (
-    auth.createUserWithEmailAndPassword(email, password).then((user)=>{
+    firebaseAuth.createUserWithEmailAndPassword(email, password).then((user)=>{
         user.name = name;
-        return database.child(`users/${user.uid}/info`).set({
+        return firebaseDb.child(`users/${user.uid}/info`).set({
             name : user.name,
             email : user.email,
             uid : user.uid
@@ -16,9 +16,9 @@ export const register = (name, email, password) => (
 )
 
 export const logout = () => (
-    auth.signOut()
+    firebaseAuth.signOut()
 )
 
 export const resetPassword = (email) => (
-    auth.sendPasswordResetEmail(email)
+    firebaseAuth.sendPasswordResetEmail(email)
 )

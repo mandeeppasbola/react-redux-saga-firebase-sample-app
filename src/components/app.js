@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
-import {auth} from '../firebase';
+import {firebaseAuth} from '../firebase';
 import {PrivateRoute, PublicRoute} from '../routes';
 
 import Header from './header';
@@ -21,7 +21,7 @@ class App extends React.Component{
 	}
 	
 	componentDidMount(){
-		this.removeAuthListner = auth.onAuthStateChanged((user) => {
+		this.removeAuthListner = firebaseAuth.onAuthStateChanged((user) => {
 			if(user){
 				this.setState({
 					authed: true,
