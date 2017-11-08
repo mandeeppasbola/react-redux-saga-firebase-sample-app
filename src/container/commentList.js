@@ -21,19 +21,21 @@ class CommentListContainer extends React.Component{
         const {comments, actions} = this.props;
         return <div className="comments">
         {
+            comments.length > 0 ? 
             comments.map((comment, i) => (
                 <Comment comment={comment} actions={actions} key={comment.id}/>
-            ))
+            )) : null
         }			
         </div>
     }
 }
 
-const mapStateToProps = (state) => (
-    {
-        comments: state.comments
-    }
-)
+const mapStateToProps = (state) => {
+    console.log(state.comments)
+return {
+    comments: state.comments.comments
+}
+}
 
 const mapDispatchToProps = (dispatch) => (
     {
@@ -42,7 +44,7 @@ const mapDispatchToProps = (dispatch) => (
 )
 
 CommentListContainer.propTypes = {
-    comments: PropTypes.array.isRequired,
+   
 	actions: PropTypes.object.isRequired
 }
 

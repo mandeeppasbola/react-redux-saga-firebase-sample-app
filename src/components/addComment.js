@@ -23,7 +23,7 @@ const AddComment =({addCommentAction}) => {
 				<input type="text" placeholder="Title" ref={(input) => { titleInput = input }} required/>
 				<textarea placeholder="Description" ref={(input) => { descInput = input }} required>				
 				</textarea>
-				<button type="button" onClick={() => handleClick()}>Add</button>
+				<button className="btn-add" type="button" onClick={() => handleClick()}>Add</button>
 			</form>
 		</div>
 	)

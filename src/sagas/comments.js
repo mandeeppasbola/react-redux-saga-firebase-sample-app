@@ -5,7 +5,7 @@ import * as actionTypes from '../actions/types';
 function* loadCommentsSaga(){
     try {
         const comments = yield call(getAllComments);
-        yield put({type:actionTypes.LOAD_COMMENTS_SUCCESS, comments})
+        yield put({type:actionTypes.LOAD_COMMENTS_SUCCESS, payload: comments})
         
     } catch(e) {
         yield put({type:actionTypes.LOAD_COMMENTS_FAILED, e})
@@ -19,7 +19,7 @@ export function* watchLoadComments(){
 function* saveCommentSaga(action){
     try {
         const comment = yield call(saveComment,action.payload);
-        yield put({type: actionTypes.SAVE_COMMENT_SUCCESS, comment})
+        yield put({type: actionTypes.SAVE_COMMENT_SUCCESS, payload: comment})
     } catch(e) {
         yield put({type: actionTypes.SAVE_COMMENT_FAILED, e})
     }
@@ -32,7 +32,7 @@ export function* watchSaveComment(){
 function* addCommentSaga(action){
     try {
         const comment = yield call(addComment,action.payload);
-        yield put({type: actionTypes.ADD_COMMENT_SUCCESS, comment})
+        yield put({type: actionTypes.ADD_COMMENT_SUCCESS, payload: comment})
     } catch(e) {
         yield put({type: actionTypes.ADD_COMMENT_FAILED, e})
     }
@@ -44,8 +44,8 @@ export function* watchAddComment(){
 
 function* deleteCommentSaga(action){
     try {
-        const id = yield call(deleteComment,action.payload);
-        yield put({type: actionTypes.DELETE_COMMENT_SUCCESS, id})
+        const id = yield call(deleteComment,action.payload.id);
+        yield put({type: actionTypes.DELETE_COMMENT_SUCCESS, payload: id})
     } catch(e) {
         yield put({type: actionTypes.DELETE_COMMENT_FAILED, e})
     }

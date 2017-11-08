@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AddCommentContainer from '../container/add-comment';
-import CommentListContainer from '../container/comment-list';
+import AddCommentContainer from '../container/addComment';
+import CommentListContainer from '../container/commentList';
 import Login from '../components/login';
 
 const CommentManager = () => (

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import AddComment from '../components/add-comment';
+import AddComment from '../components/addComment';
 import {addComment} from '../actions';
 
 const AddCommentContainer = ({actions}) => (

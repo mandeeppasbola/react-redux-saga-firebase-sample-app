@@ -5,14 +5,6 @@ const importFirebase = () => {
 }
 
 const firebase = () => {
-  if(app){
-    return new Promise((resolve, reject)=>{
-      resolve ({
-        firebaseDb: app.database().ref(),
-        firebaseAuth: app.auth()
-      })
-    })
-  }
   return importFirebase().then((firebase) => {
     const config = {
       apiKey: "AIzaSyBrIxZfBgor6Plc5g5Y7SuxJB3_FacmLEE",
@@ -21,7 +13,9 @@ const firebase = () => {
       projectId: "react-comment-manager"
     };
 
-    app = firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+      app = firebase.initializeApp(config);
+    }    
     return {
       firebaseDb: app.database().ref(),
       firebaseAuth: app.auth()

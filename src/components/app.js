@@ -9,7 +9,7 @@ import Home from './home';
 import Login from './login';
 import Register from './register';
 import ResetPassword from './resetPassword';
-import CommentManager from './comment-manager';
+import CommentManager from './commentManager';
 
 
 class App extends React.Component{

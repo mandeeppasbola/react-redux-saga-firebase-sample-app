@@ -24,6 +24,6 @@ export const addComment = (title, desc) => {
 export const deleteComment = (id) => {
 	return {
 		type: actionTypes.DELETE_COMMENT_REQUEST,
-		payload: id
+		payload: {id}
 	}
 }

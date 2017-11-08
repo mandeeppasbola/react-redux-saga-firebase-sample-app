@@ -45,7 +45,7 @@ class Comment extends React.Component {
 					<input type="text" value={this.state.title} onChange={this.handleTitleChange} />
 					<textarea value={this.state.desc} onChange={this.handleDescChange}></textarea>
 					<div className="actions">
-						<button type="button" onClick={(e) => this.saveComment(e, comment.id, this.state.title, this.state.desc)}>Save</button>
+						<button className="btn-save" type="button" onClick={(e) => this.saveComment(e, comment.id, this.state.title, this.state.desc)}>Save</button>
 					</div>
 				</div>		
 			)
@@ -55,8 +55,8 @@ class Comment extends React.Component {
 					<h3>{comment.title}</h3>
 					<p>{comment.desc}</p>
 					<div className="actions">
-						<button type="button" onClick={(e) => this.editComment()}>Edit</button>
-						<button type="button" onClick={(e) => deleteComment(comment.id)}>Delete</button>
+						<button className="btn-edit" type="button" onClick={(e) => this.editComment()}>Edit</button>
+						<button className="btn-delete" type="button" onClick={(e) => deleteComment(comment.id)}>Delete</button>
 					</div>
 				</div>		
 			)

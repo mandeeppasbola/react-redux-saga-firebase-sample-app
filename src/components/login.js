@@ -10,12 +10,14 @@ const Login = () => {
 
     const handleLoginClick = () => {
         if(loginForm.checkValidity()){
-            errorLabel.innerHTML = "";
+            errorLabel.innerHTML = "";            
             login(emailInput.value, passwordInput.value)
+            .then(() => {
+                loginForm.reset();
+            })
             .catch((error) => {
                 errorLabel.innerHTML = error.message;
-            })
-            loginForm.reset();
+            })            
         } else {
             errorLabel.innerHTML = "Email and Password are required";
         }
