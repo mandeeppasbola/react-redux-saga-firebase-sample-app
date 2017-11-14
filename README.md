@@ -5,6 +5,8 @@ Sample React Redux app using Redux-Saga for async, Firebase for database & authe
 ```sh
 npm install
 ```
+Note : Replace your Firebase configurations in firebase.js
+
 ### Development
 ```sh
 Build : 
@@ -31,5 +33,15 @@ npm run coverage
 ```sh
 npm run analyze
 ```
+### Todo 
+- [x] Redux
+- [x] Redux Saga
+- [x] Authentication
+- [x] Webpack Dynamic import
+- [x] Webpack Performance tunning
+- [x] Testing Framework and Coverage
+- [ ] Server Side Rendering
+- [ ] Progressive Web App
+- [ ] Accelerated Mobile Pages
+- [ ] React v16
 
-Note : Replace your Firebase configurations in firebase.js
