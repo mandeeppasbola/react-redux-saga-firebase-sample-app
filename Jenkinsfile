@@ -9,7 +9,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps{
                 withSonarQubeEnv('SonarQube') {
-                    bat 'mvn clean package sonar:sonar'
+                    bat 'sonar-scanner'
                 }     
                 script{
                     def qualitygate = waitForQualityGate()
