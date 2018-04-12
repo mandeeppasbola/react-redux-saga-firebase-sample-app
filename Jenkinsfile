@@ -9,7 +9,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps{
                 withSonarQubeEnv('SonarQube') {
-                    bat "sonar-scanner -Dsonar.projectKey=mandeep -Dsonar.sources=./client"
+                    bat "sonar-scanner -Dsonar.projectKey=mandeep -Dsonar.sources=./src"
                 }     
                 script{
                     def qualitygate = waitForQualityGate()
